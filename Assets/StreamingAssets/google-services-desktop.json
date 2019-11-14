@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "485445658664-otmtpkij0mibvmd26rchc3usvbtovh1v.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpWx2o5EoRa2VAGhZOMAeuhrAwyTt116E"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:485445658664:ios:cff04ee1bb07852efded1d", 
+        "android_client_info": {
+          "package_name": "com.das.dragdrop"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "testdrag-16f38.appspot.com", 
+    "project_id": "testdrag-16f38", 
+    "firebase_url": "https://testdrag-16f38.firebaseio.com", 
+    "project_number": "485445658664"
+  }
+}
