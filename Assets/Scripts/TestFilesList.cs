@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TestFilesList : AdaptiveWindowGUI
 {
     [Range(1, 1000)]
-    public int ResultsPerPage = 100;
+    public int ResultsPerPage = 12;
 
     public Image defaultImg;
     public Transform layoutParent;
@@ -83,8 +83,9 @@ public class TestFilesList : AdaptiveWindowGUI
         request = GoogleDriveFiles.List();
         request.Fields = new List<string> { "nextPageToken, files(id, name, size, createdTime)" };
         request.PageSize = ResultsPerPage;
-        if (!string.IsNullOrEmpty(query))
-            request.Q = string.Format("name contains '{0}'", query);
+        //if (!string.IsNullOrEmpty(query))
+        //    request.Q = string.Format("name contains '{0}'", query);
+        request.Q = string.Format("name contains '{0}' or name contains '{1}' or name contains '{2}'", ".png", ".jpg", ".jpeg");
         if (!string.IsNullOrEmpty(nextPageToken))
             request.PageToken = nextPageToken;
         request.Send().OnDone += BuildResults;
@@ -101,7 +102,7 @@ public class TestFilesList : AdaptiveWindowGUI
                 file.Size * .000001f,
                 file.CreatedTime);
             results.Add(file.Id, fileInfo);
-            if (file.MimeType.Contains("image/"))
+            if (file.Name.Contains(".png") || file.Name.Contains(".jpg") || file.Name.Contains(".jpeg"))
             {
                 DownloadTexture(file.Id);
             }
